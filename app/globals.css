@@ -64,6 +64,17 @@ p {
     linear-gradient(180deg, #4A5D52 0%, #3F514A 100%);
 }
 
+/* Splash loader animations */
+@keyframes loaderDot {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes loaderFade {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
 /* Decorative noise/grain (optional subtle feel) */
 .grain::after {
   content: "";

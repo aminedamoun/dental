@@ -19,10 +19,17 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[92vh] items-center overflow-hidden pt-36 pb-12 lg:pt-44 lg:pb-16 grain"
     >
-      {/* Background video */}
+      {/* Instant-display poster fills the frame immediately; video plays once it's ready */}
+      <div
+        className="absolute inset-0 bg-brand-green bg-cover bg-center"
+        style={{ backgroundImage: "url(/video/poster.webp)" }}
+        aria-hidden="true"
+      />
+      {/* Background video — fades in over the poster once playable */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/video/hero.webm"
+        poster="/video/poster.webp"
         autoPlay
         muted
         loop
@@ -30,9 +37,9 @@ export default function Hero() {
         preload="auto"
         aria-hidden="true"
       />
-      {/* Black overlay — cinematic: video still visible, text fully legible */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35" />
+      {/* Subtle overlays for text legibility — lighter than before so video reads clearly */}
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
 
       <div className="pointer-events-none absolute left-0 right-0 top-1/3 hidden lg:block">
         <div className="mx-auto h-px w-2/3 max-w-5xl bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent" />

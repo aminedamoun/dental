@@ -29,6 +29,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+      <head>
+        {/* Start downloading the hero video + poster as early as possible */}
+        <link rel="preload" as="image" href="/video/poster.webp" />
+        <link
+          rel="preload"
+          as="video"
+          href="/video/hero.webm"
+          type="video/webm"
+        />
+      </head>
       <body className="font-sans bg-white text-brand-ink">{children}</body>
     </html>
   );
