@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-green: #4A5D52;
+  --brand-gold: #C5A572;
+  --brand-cream: #F7F5F0;
+  --brand-ink: #2A2A2A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: var(--brand-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Readability pass: body paragraphs default to normal weight and stronger contrast.
+   Headings, buttons, labels, UI chrome still use whatever weight they specify. */
+p {
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+/* Hide scrollbar for horizontal scroll areas but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reveal-on-scroll base */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Elegant gold divider */
+.gold-divider {
+  display: inline-block;
+  width: 56px;
+  height: 1px;
+  background-color: var(--brand-gold);
+}
+
+/* Subtle hero gradient overlay */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse at top right, rgba(197, 165, 114, 0.12), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, #4A5D52 0%, #3F514A 100%);
+}
+
+/* Decorative noise/grain (optional subtle feel) */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
